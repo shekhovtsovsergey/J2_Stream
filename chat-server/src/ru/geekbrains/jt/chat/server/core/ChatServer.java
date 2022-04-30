@@ -121,6 +121,7 @@ public class ChatServer implements ServerSocketThreadListener, SocketThreadListe
         sendToAllAuthorized(msg);
     }
 
+
     private void sendToAllAuthorized(String msg) {
         for (int i = 0; i < clients.size(); i++) {
             ClientThread client = (ClientThread) clients.get(i);

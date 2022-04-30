@@ -22,8 +22,8 @@ public class Client extends JFrame implements ActionListener, Thread.UncaughtExc
     private final JTextField tfIPAddress = new JTextField("127.0.0.1");
     private final JTextField tfPort = new JTextField("8189");
     private final JCheckBox cbAlwaysOnTop = new JCheckBox("Always on top");
-    private final JTextField tfLogin = new JTextField("ivan_igorevich");
-    private final JPasswordField tfPassword = new JPasswordField("123456");
+    private final JTextField tfLogin = new JTextField("sergey123");
+    private final JPasswordField tfPassword = new JPasswordField("123");
     private final JButton btnLogin = new JButton("Login");
 
     private final JPanel panelBottom = new JPanel(new BorderLayout());
@@ -48,7 +48,7 @@ public class Client extends JFrame implements ActionListener, Thread.UncaughtExc
         String[] users = {"user1", "user2",
                 "user3", "user4", "user5", "user6",
                 "user7", "user8", "user9",
-                "user10_with_a_exceptionally_long_nickname", };
+                "user10", };
         userList.setListData(users);
         spUsers.setPreferredSize(new Dimension(100, 0));
         cbAlwaysOnTop.addActionListener(this);
