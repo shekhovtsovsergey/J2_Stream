@@ -118,8 +118,14 @@ public class ChatServer implements ServerSocketThreadListener, SocketThreadListe
     }
 
     private void handleAuthMsg(ClientThread client, String msg) {
-        sendToAllAuthorized(msg);
+
+        if (msg.startsWith("/")) {
+            sendToAllAuthorized(Messages.getTypeBroadcast("Server","Служебное сообщение!   " + msg));  //Если нашли служебный символ вначале, то выполнить служебную команду
+        } else {
+            sendToAllAuthorized(msg);  //Если служебного символа не найдено, то отправить сообщение всем
+        }
     }
+
 
 
     private void sendToAllAuthorized(String msg) {
@@ -147,6 +153,9 @@ public class ChatServer implements ServerSocketThreadListener, SocketThreadListe
         client.authAccept(nickname);
         sendToAllAuthorized(Messages.getTypeBroadcast("Server", nickname + " connected."));
     }
+
+
+
 
     @Override
     public void onSocketException(SocketThread t, Throwable e) {
